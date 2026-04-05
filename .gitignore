@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.next/
+dist/
+build/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Antigravity / AI temporary files
+.tmp/
+.agent/
+gemini.md
+task_plan.md
+progress.md
+findings.md
+plan.md
+
+# Logs and caches
+*.log
+.DS_Store
+Thumbs.db
+.eslintcache
+
+# Build outputs
+*.tsbuildinfo
+next-env.d.ts

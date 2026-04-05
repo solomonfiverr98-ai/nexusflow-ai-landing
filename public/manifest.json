@@ -1,0 +1,21 @@
+{
+  "name": "NexusFlow AI",
+  "short_name": "NexusFlow",
+  "description": "Agents That Think, Build, and Ship — While You Focus.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020408",
+  "theme_color": "#0EA5E9",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
