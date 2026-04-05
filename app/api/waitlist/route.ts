@@ -4,6 +4,7 @@ import { getResendClient } from '@/lib/resend';
 import { z } from 'zod';
 
 export const dynamic = 'force-dynamic';
+export const runtime = 'edge';
 
 const waitlistSchema = z.object({
   email: z.string().email("Invalid email address"),
