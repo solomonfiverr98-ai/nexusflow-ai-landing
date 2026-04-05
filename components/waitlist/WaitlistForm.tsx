@@ -74,28 +74,40 @@ export default function WaitlistForm() {
               key="success"
               initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-              className="flex flex-col items-center justify-center space-y-6 py-10"
+              className="max-w-2xl mx-auto glass p-16 rounded-[3rem] border border-brand-blue/30 text-center relative overflow-hidden"
             >
-              <div className="relative">
-                <div className="absolute inset-0 bg-emerald-500/20 blur-2xl rounded-full animate-pulse" />
-                <div className="relative w-20 h-20 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/30">
-                  <CheckCircle2 className="w-10 h-10 text-emerald-400" />
+              {/* Success Background Ambience */}
+              <div className="absolute inset-0 bg-brand-blue/5 -z-10 animate-pulse-slow" />
+              <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-brand-blue-bright/10 blur-[120px] rounded-full pointer-events-none" />
+
+              <div className="mb-10 relative">
+                <div className="w-24 h-24 rounded-full bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center mx-auto shadow-glow-blue relative z-10 scale-110">
+                  <CheckCircle2 className="w-12 h-12 text-brand-blue-bright animate-bounce-subtle" />
                 </div>
+                {/* Decorative Rings */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-brand-blue/20 rounded-full animate-ping opacity-20" />
               </div>
-              <div className="space-y-3">
-                <h3 className="text-3xl md:text-4xl font-heading font-bold text-white">You're in.</h3>
-                <p className="text-white/50 text-lg font-body max-w-sm mx-auto">
-                    Early access begins soon. We'll reach out the moment your node is ready.
-                </p>
+
+              <h2 className="text-4xl font-heading font-bold text-white mb-6 tracking-tight">
+                Access Status: <span className="text-brand-blue-bright">Reserved.</span>
+              </h2>
+              
+              <p className="text-white/40 text-lg font-body leading-relaxed mb-10 max-w-sm mx-auto">
+                Your node ID has been registered in the Alpha-v2.1 queue. 
+                Keep an eye on <span className="text-white/70 italic">{formData.email}</span> for your invite key.
+              </p>
+
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center gap-4">
+                  <span className="text-[10px] font-mono text-white/20 uppercase tracking-[0.3em] font-bold italic">Verification Signature:</span>
+                  <div className="font-mono text-xs text-brand-blue-bright/60 break-all select-all hover:text-brand-blue-bright transition-colors cursor-pointer">
+                      {Math.random().toString(36).substring(2, 18).toUpperCase()}_{Date.now()}
+                  </div>
               </div>
-              <Button 
-                variant="secondary" 
-                onClick={() => { setState('idle'); setFormData({ name: "", email: "" }); setMessage(""); }}
-                className="mt-6 glass border-white/10 text-white/60 hover:text-white"
-              >
-                Return to Network
-              </Button>
+
+              <div className="mt-12 flex items-center justify-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-blue-bright shadow-glow-blue animate-pulse" />
+                  <span className="text-[10px] font-mono text-white/20 uppercase tracking-widest leading-loose">Queue Position Monitoring Active</span>
+              </div>
             </motion.div>
           ) : (
             <motion.div 

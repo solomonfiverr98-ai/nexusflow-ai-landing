@@ -5,6 +5,10 @@ import BentoGrid from '@/components/features/BentoGrid';
 import WaitlistForm from '@/components/waitlist/WaitlistForm';
 import ProblemSection from '@/components/sections/ProblemSection';
 import SocialProof from '@/components/sections/SocialProof';
+import HowItWorks from '@/components/sections/HowItWorks';
+import Testimonials from '@/components/sections/Testimonials';
+import Pricing from '@/components/sections/Pricing';
+import FAQ from '@/components/sections/FAQ';
 import { Globe, Zap, Shield } from 'lucide-react';
 
 export default function Home() {
@@ -34,6 +38,18 @@ export default function Home() {
             <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-background to-transparent z-20 pointer-events-none" />
             <BentoGrid />
         </div>
+
+        {/* Workflow Narrative */}
+        <HowItWorks />
+
+        {/* Social Proof / Testimonials */}
+        <Testimonials />
+
+        {/* Pricing Strategy */}
+        <Pricing />
+
+        {/* Utility / FAQ */}
+        <FAQ />
 
         {/* Priority Waitlist Access */}
         <WaitlistForm />

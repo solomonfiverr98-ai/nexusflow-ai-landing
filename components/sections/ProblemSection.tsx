@@ -96,49 +96,73 @@ export default function ProblemSection() {
           </div>
 
           <h2 className="problem-title text-4xl md:text-6xl font-heading font-bold text-white tracking-tight leading-[1.1]">
-            {"Legacy systems are drowning in".split(" ").map((word, i) => (
+            {"Managing infrastructure manually is now a".split(" ").map((word, i) => (
               <span key={i} className="inline-block mr-3">{word}</span>
             ))}
-            <span className="text-rose-500">{"Reactive Complexity."}</span>
+            <span className="text-rose-500">{"Strategic Liability."}</span>
           </h2>
 
           <p className="text-white/40 text-lg md:text-xl font-body max-w-xl leading-relaxed">
-            While your competitors scale with autonomous logic, your teams are 
-            stuck managing brittle automations and prompt-switching. 
-            NexusFlow isn't just another tool—it's the antidote to operational decay.
+            While industry leaders scale with autonomous logic, 80% of DevOps teams 
+            are buried in "Reactive Ops"—shifting from one brittle automation to the next. 
+            NexusFlow ends the cycle of operational decay.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
             {problems.map((p, i) => (
               <div 
                 key={i}
-                className="problem-card glass p-6 rounded-2xl border border-white/5 flex flex-col gap-4 group hover:border-rose-500/30 transition-colors"
+                className="problem-card glass p-6 rounded-2xl border border-white/5 flex flex-col gap-4 group hover:border-rose-500/30 transition-all duration-500 hover:bg-rose-500/5 shadow-inner"
               >
-                <div className="p-3 rounded-xl bg-white/5 w-fit group-hover:bg-rose-500/10 transition-colors">
+                <div className="p-3 rounded-xl bg-white/5 w-fit group-hover:bg-rose-500/20 group-hover:scale-110 transition-all duration-500">
                   {p.icon}
                 </div>
                 <div>
-                  <h4 className="text-white font-heading font-bold mb-1">{p.label}</h4>
-                  <p className="text-white/30 text-sm font-body">{p.text}</p>
+                  <h4 className="text-white font-heading font-bold mb-1 group-hover:text-rose-400 transition-colors">{p.label}</h4>
+                  <p className="text-white/30 text-sm font-body group-hover:text-white/50 transition-colors">{p.text}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative group">
           {/* Visualizing "Chaos" vs "Order" */}
-          <div className="relative aspect-square max-w-md mx-auto">
-            {/* Chaos Mesh */}
+          <div className="relative aspect-square max-w-md mx-auto flex items-center justify-center">
+            {/* Chaos Mesh Layers */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full h-full rounded-full border border-dashed border-white/10 animate-spin-slow" />
-              <div className="absolute w-3/4 h-3/4 rounded-full border border-dashed border-rose-500/10 animate-spin-slow reverse" />
+              <div className="w-full h-full rounded-full border border-dashed border-white/10 animate-spin-slow opacity-40" />
+              <div className="absolute w-[85%] h-[85%] rounded-full border border-dashed border-rose-500/20 animate-spin-slow reverse opacity-60" />
+              <div className="absolute w-[70%] h-[70%] rounded-full border border-dotted border-rose-500/10 animate-pulse-slow" />
             </div>
 
+            {/* Floating Error Nodes */}
+            {[...Array(6)].map((_, i) => (
+                <motion.div
+                    key={i}
+                    animate={{
+                        x: [0, Math.random() * 40 - 20, 0],
+                        y: [0, Math.random() * 40 - 20, 0],
+                        scale: [1, 1.2, 1],
+                        opacity: [0.2, 0.5, 0.2]
+                    }}
+                    transition={{
+                        duration: 3 + Math.random() * 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                    className="absolute w-2 h-2 bg-rose-500 rounded-full blur-[2px]"
+                    style={{
+                        top: `${20 + Math.random() * 60}%`,
+                        left: `${20 + Math.random() * 60}%`
+                    }}
+                />
+            ))}
+
             {/* Central "Nexus" Core (Visual hint of the Hero Orb) */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-rose-500/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 glass rounded-2xl flex items-center justify-center border border-rose-500/40 shadow-glow-rose">
-                <AlertTriangle className="w-8 h-8 text-rose-400" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-rose-500/10 rounded-full blur-[60px] group-hover:bg-rose-500/20 transition-colors duration-1000" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 glass rounded-[2rem] flex items-center justify-center border border-rose-500/40 shadow-glow-rose group-hover:scale-110 transition-transform duration-700">
+                <AlertTriangle className="w-10 h-10 text-rose-400 animate-pulse" />
             </div>
           </div>
         </div>
